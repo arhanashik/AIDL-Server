@@ -16,8 +16,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 
 import com.w3engineers.core.IAdd;
+import com.w3engineers.core.Person;
 import com.w3engineers.core.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -47,6 +49,16 @@ public class AdditionService extends Service {
 
         public List<String> getStringList() throws RemoteException {
             return MainActivity.getList();
+        }
+
+        @Override
+        public Person getPerson() throws RemoteException {
+            return new Person(1, "Mr. Perfect", 24);
+        }
+
+        @Override
+        public List<Person> getPersonList() throws RemoteException {
+            return MainActivity.getPersons();
         }
 
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
